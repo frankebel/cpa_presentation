@@ -36,4 +36,52 @@
     \end{equation}
 \end{frame}
 
+\begin{frame}{Resolvent formalism (1)}
+    Represent Green's function as sum of discrete poles~\notefullcite{Lu2014}
+    \begin{equation}
+        G(\omega) = \sum_{i=1}^N \frac{b_i^2}{\omega - a_i}
+    \end{equation}
+    Write as a resolvent:
+    \begin{align}
+        H_e       & = \diag(\alpha_1, \alpha_2, \cdots)       \\
+        \ket{v}   & = (b_1, b_2, \cdots)^\top                 \\
+        G(\omega) & = \sandwich{v}{\frac{1}{\omega - H_e}}{v}
+    \end{align}
+\end{frame}
+
+\begin{frame}{Resolvent formalism (2)}
+    Unitary transformation to get inverse~\notefullcite{Lu2014}
+    \begin{align}
+        G(\omega) & = \sandwich{Uv}{\frac{1}{\omega - U^\dag H_e U}}{Uv}                                           \\
+        H_\mA     & =
+        \renewcommand{\arraystretch}{1.2} % more vertical spacing
+        \begin{pmatrix}
+            \alpha_1^\mA & \beta_2^\mA  & \beta_3^\mA  & \cdots \\
+            \beta_2^\mA  & \alpha_2^\mA & 0            & \cdots \\
+            \beta_3^\mA  & 0            & \alpha_3^\mA &        \\
+            \vdots       & \vdots       &              & \ddots
+        \end{pmatrix}                                                        \\
+        G(\omega) & = \frac{1}{\omega - \alpha_1^\mA - \sum_{i=2}^N \frac{\beta_i^{\mA^2}}{\omega - \alpha_i^\mA}}
+    \end{align}
+\end{frame}
+
+\begin{frame}{Self-energy}
+    \begin{align}
+        \Sigma(\omega) & = G_0(\omega)^{-1} - G(\omega)^{-1}                                       \\
+                       & = \omega - \alpha^0_1 - \sum_i \frac{\beta_i^{0^2}}{\omega - \alpha_i^0}
+        - \left(\omega - \alpha_1 - \sum_i \frac{\beta_i^2}{\omega - \alpha_i}\right)              \\
+                       & = \Sigma^\mH + \sum_i \frac{\beta_i^{\Sigma^2}}{\omega - \alpha_i^\Sigma}
+    \end{align}
+    Physical quantity: $\beta_i^{\Sigma^2} \ge 0$ \\
+    For finite system: merge negative residue
+\end{frame}
+
+\begin{frame}{Interacting Green's function}
+    \begin{align}
+        G(\omega) & = \sum_i \frac{\beta_i^2}{\omega - \alpha_i - \Sigma(\omega)}                                                            \\
+                  & = \sum_i \frac{\beta_i^2}{\omega - (\alpha_i + \Sigma^\mH) - \sum_j \frac{\beta_j^{\Sigma^2}}{\omega - \alpha_j^\Sigma}} \\
+                  & = \sum_{i'} \frac{\beta_{i'}^2}{\omega - \alpha_{i'}}
+    \end{align}
+\end{frame}
+
 \end{document}
