@@ -23,7 +23,17 @@
 \frame{\titlepage}
 
 \section*{main}
+
 \begin{frame}{Motivation}
+    In exercise used finite broadening $\delta$:
+    \begin{align}
+        G_{0}(k, \omega+\mi\delta) & = \frac{1}{\omega + \mi\delta - \epsilon_k} \\
+    \end{align}
+    Can we do $\lim_{\delta\to0^+}$? \\
+    Yes, in the resolvent formalism:
+    \begin{equation}
+        \res(\omega, H) =  (\omega\mathbb{1} - H)^{-1}
+    \end{equation}
 \end{frame}
 
 \end{document}
