@@ -1,0 +1,52 @@
+%! TeX root = ../main.tex
+
+\begin{tikzpicture}
+    [
+        node distance=0pt,
+    ]
+    \begin{groupplot}
+        [
+            group style=
+                {
+                    group name=plots,
+                    group size=2 by 1,
+                    horizontal sep=15mm,
+                    x descriptions at=edge bottom,
+                },
+            xmin=-4.5,
+            xmax=4.5,
+            xlabel=$\omega/t$,
+            every axis plot/.append style={
+                    thick,
+                },
+            width=0.45\textwidth,
+            cycle multiindex* list={
+                    Set1\nextlist%
+                },
+            legend cell align=left,
+        ]
+
+        \nextgroupplot
+        [
+            ylabel=residues of $G_0$,
+        ]
+        \addplot+[only marks] table [x=locations, y=weights] {data/g0_n1000.csv};
+
+        \nextgroupplot
+        [
+            ylabel=$A_0$,
+            legend entries=
+                {
+                    Gaussian ,
+                    Lorentzian,
+                },
+            legend style={
+                    at={(0.5,0.05)},
+                    anchor=south,
+                }
+        ]
+        \addplot+ table [x=W, y=gaussian] {data/g0_broadened_n1000.csv};
+        \addplot+ table [x=W, y=lorentzian] {data/g0_broadened_n1000.csv};
+    \end{groupplot}
+
+\end{tikzpicture}
