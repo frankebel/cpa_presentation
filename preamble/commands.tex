@@ -4,6 +4,7 @@
 % unicode-math waits until document setup
 \AtBeginDocument{\renewcommand\Re{\mathrm{Re}\>}}
 \AtBeginDocument{\renewcommand\Im{\mathrm{Im}\>}}
+\newcommand{\bigO}[1]{\ensuremath \mathcal{O}\!\left(#1\right)} % chktex 1
 
 % bra-ket
 \DeclarePairedDelimiter\bra{\langle}{\rvert}%

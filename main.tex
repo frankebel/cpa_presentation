@@ -124,6 +124,19 @@
     \end{centering}
 \end{frame}
 
+\begin{frame}{Moments}
+    Moments of Green's function and self-energy:
+    \begin{equation}
+        C^{(n)} = -\frac{1}{\muppi} \int_{-\infty}^\infty\! \md\omega\> \omega^n \Im C(\omega)
+    \end{equation}
+    Analytic values:
+    \begin{alignat}{3}
+                   &                      & G^{(0)}             & = 1                    & \qquad G^{(1)}      & = 0 \\
+        \Sigma^\mH & = \frac{\epsilon}{2} & \qquad \Sigma^{(0)} & = \frac{\epsilon^2}{4} & \qquad \Sigma^{(1)} & = 0
+    \end{alignat}
+    Match within machine precision $\bigO{2^{-52}}=\bigO{2\cdot10^{-16}}$
+\end{frame}
+
 \begin{frame}{Summary}
     \begin{itemize}
         \item Explain resolvent formalism
